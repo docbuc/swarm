@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image: docbuc/hello-swarm
+    image: docbuc/hello-swarm:2.1
     build: hello-swarm/
     ports:
-      - "80:80"
+      - "8080:8080"

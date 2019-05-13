@@ -4,7 +4,17 @@ const http = require("http"),
 http.createServer((req, res) => {
   const dateTime = new Date(),
     load = os.loadavg(),
-    doc = `<!DOCTYPE html>
+    net = os.networkInterfaces();
+  let ips = [];
+  for (const key of Object.keys(net)) {
+    for (const iface of net[key]) {
+      if (iface.internal === false) {
+        ips.push(iface.address);
+      }
+    }
+  }
+  ips.sort();
+  const doc = `<!DOCTYPE html>
 <html>
   <head>
     <title>Hello swarm</title>
@@ -15,9 +25,10 @@ http.createServer((req, res) => {
     Swarm-Node: ${os.hostname()}, ver. ${os.release()}<br />
     Serverzeit: ${dateTime}<br />
     Uptime: ${os.uptime()/60/60} Stunden<br />
+    Netzwerk: ${ips.join(',')}<br />
     Serverauslastung (load): ${load[0]}
   </body>
 </html>`
   res.setHeader('Content-Type', 'text/html');
   res.end(doc);
-}).listen(80);
+}).listen(8080);
