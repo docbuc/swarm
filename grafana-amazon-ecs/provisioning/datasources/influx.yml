@@ -5,7 +5,7 @@ datasources:
   type: influxdb
   access: proxy
   orgId: 1
-  url: http://influx:8086
+  url: http://localhost:8086
   database: telegraf
   isDefault: true
   version: 1

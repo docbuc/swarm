@@ -1,3 +1,4 @@
+# Datei: swarm/grafana-amazon-ecs/ecs-params.yml
 version: 1
 task_definition:
   task_execution_role: ecsExecutionRole
@@ -9,8 +10,8 @@ run_params:
   network_configuration:
     awsvpc_configuration:
       subnets:
-        - "subnet-042cc56bdb5c66a6f"
-        - "subnet-03dc62865ea1b4165"
+        - "subnet-039615c53ec8ce108"
+        - "subnet-0a5cf0ab4f2791ebe"
       security_groups:
-        - "sg-042ca8f135bc6081f"
+        - "sg-064ac2875dd3adb9a"
       assign_public_ip: ENABLED
