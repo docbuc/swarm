@@ -28,20 +28,20 @@ services:
   api:
     restart: always
     build: api
-    image: docbuc/mwaapi:2
+    image: docbuc/mwaapi:3.1
     environment:
-      - MONGO_URL=mongodb://mongo1:27017,mongo2:27017,mongo3:27017/?replicaSet=rs0
-      # - MONGO_URL=mongodb://mongo1:27017/
+      # - MONGO_URL=mongodb://mongo1:27017,mongo2:27017,mongo3:27017/?replicaSet=rs0
+      - MONGO_URL=mongodb://mongo1:27017/
     depends_on:
       - mongo1
     ports:
       - 3000:3000
   redis:
-    image: redis:5-alpine
+    image: redis:6-alpine
   frontend:
     restart: always
     build: frontend
-    image: docbuc/mwafe:2-ssl
+    image: docbuc/mwafe:3.1
     depends_on:
       - api
     ports:

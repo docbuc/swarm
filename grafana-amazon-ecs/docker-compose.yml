@@ -2,7 +2,7 @@
 version: '2'
 services:
   grafana:
-    image: docbuc/grafana:2-ecs
+    image: docbuc/grafana:3-ecs
     build: .
     restart: always
     ports:
@@ -16,7 +16,7 @@ services:
         awslogs-region: eu-west-1
         awslogs-stream-prefix: grafana
   telegraf:
-    image: docbuc/telegraf:2-ecs
+    image: docbuc/telegraf:3-ecs
     build: telegraf/
     restart: always
     logging:

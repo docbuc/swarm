@@ -1,5 +1,5 @@
 # Datei: mwa/frontend/Dockerfile (docbuc/mwafe:2)
-FROM node:12 as builder
+FROM node:16 as builder
 RUN npm i -g --save @vue/cli
 WORKDIR /src/vue
 COPY vue/package* /src/vue/

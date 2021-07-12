@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:16
 ENV TZ="Europe/Amsterdam"
 COPY server.js /src/
 EXPOSE 8080
